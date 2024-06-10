@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Level Detection</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f9f7f7; /* Light Gray */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            color: #2980b9; /* Blue */
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #34495e; /* Dark Gray */
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 300px;
+            background-color: #fff; /* White */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+        }
+        input[type="number"], input[type="submit"] {
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        input[type="number"]:focus {
+            border-color: #2980b9; /* Blue */
+            outline: none;
+        }
+        input[type="submit"] {
+            background-color: #3498db; /* Light Blue */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9; /* Blue */
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 20px;
+            }
+            form {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Stress Level Detection Model</h1>
+    <h2>Enter Values as Mentioned:</h2>
+    <form action="/" method="POST">
+        <input type="number" name="MEAN_RR" placeholder="MEAN_RR" step="any" required>
+        <input type="number" name="RMSSD" placeholder="RMSSD" step="any" required>
+        <input type="number" name="pNN25" placeholder="pNN25" step="any" required>
+        <input type="number" name="pNN50" placeholder="pNN50" step="any" required>
+        <input type="number" name="LF" placeholder="LF" step="any" required>
+        <input type="number" name="HF" placeholder="HF" step="any" required>
+        <input type="number" name="LF_HF" placeholder="LF_HF" step="any" required>
+        <input type="submit" value="Submit">
+    </form>
+    {% if cond %}
+        <h2>Predicted Condition:</h2>
+        <p>{{ cond }}</p>
+    {% endif %}
+</body>
+</html>
